@@ -40,6 +40,7 @@ gamesData.addEventListener('click', (e) => {
 
 	if (action) {
 		dispatchAction[action](element);
+		updateTotalMoneyOnFooter();
 		updateHash();
 	}
 })
