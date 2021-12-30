@@ -5,6 +5,7 @@ const gamesData = document.getElementById('games_data');
 const totalGames = document.getElementById('total_games');
 const totalMoney = document.getElementById('total_money');
 const shareIcon = document.querySelector('.share_icon');
+const btnCheck = document.getElementById('btn-check');
 
 // dispatch an action delete, like or unlike game
 const dispatchAction = {
@@ -36,7 +37,9 @@ const updateHash = () => {
 }
 
 // listener on click on some game row
+let lastClick = 0;
 gamesData.addEventListener('click', (e) => {
+	const eventDateTime = new Date().getTime();
 	const element = e.target.parentNode;
 	const action = e.target.parentNode.dataset.action;
 
@@ -45,7 +48,20 @@ gamesData.addEventListener('click', (e) => {
 		updateTotalMoneyOnFooter();
 		updateHash();
 	}
-})
+
+	// double click
+	if (eventDateTime - lastClick < 200) {
+		const element = e.target;
+		const isNumber = element.type === 'number';
+		if (isNumber) {
+			element.classList.toggle('marked_number')
+		}
+	}
+
+	lastClick = eventDateTime;
+	
+});
+
 
 // validate unique numbers on a game
 const validateUniques = (data) => {

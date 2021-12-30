@@ -17,6 +17,7 @@ a project to share lottery games
 - control paid status
 - check unique numbers on game
 - sort numbers
+- double click to paint a number
 
 access link https://4lessandrodev.github.io/share-games/index.html 
 

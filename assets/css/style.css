@@ -218,6 +218,15 @@ input[type="submit"]:hover {
 	margin: 0 1% 0 0;
 }
 
+.row>input[type="number"] {
+	cursor: pointer;
+}
+
+#games_data>.row>.marked_number {
+	background-color: var(--regular-green);
+	color: var(--light-gray);
+}
+
 .row>.btn{
 	margin: 0 1% 0 0;
 }
