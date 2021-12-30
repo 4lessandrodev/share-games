@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 :root {
 	--light-green: #18BD77;
 	--light: #FFFFFF;
@@ -16,10 +23,16 @@ h2 {
 }
 
 .header, .header_title_logo {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	background-color: var(--light-green);
-	align-items: center;
-	justify-content: space-between;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 }
 
 .header_logo {
@@ -55,6 +68,8 @@ input[type=number] {
 }
 
 .new_game_numbers{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	min-width: 90vw;
 	padding: 10px 0;
@@ -85,6 +100,8 @@ input[type=number] {
 }
 
 .new_game_numbers > input[type="submit"] {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	background-color: var(--regular-green);
 	border: none;
@@ -96,7 +113,9 @@ input[type=number] {
 	text-align: center;
 	color: var(--light);
 	min-width: 120px;
-	justify-content: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 }
 
 input[type="submit"]:hover {
@@ -104,16 +123,26 @@ input[type="submit"]:hover {
 }
 
 .main, .footer {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	max-width: 100%;
 	padding: 4% 6%;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 }
 
 .games_table, .rows {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	width: 85vw;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 }
 
 .games_table input[type="number"] {
@@ -138,10 +167,16 @@ input[type="submit"]:hover {
 }
 
 .btn {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	border: none;
-	justify-content: center;
-	align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	height: 42px;
 	width: 48px;
 	min-width: 48px;
@@ -163,8 +198,13 @@ input[type="submit"]:hover {
 }
 
 .row {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: row;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
 	min-height: 72px;
 	max-height: 72px;
 	width: 100%;
@@ -183,11 +223,18 @@ input[type="submit"]:hover {
 }
 
 .footer {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: row;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
 	margin: 0;
 	padding-top: 0;
-	justify-content: space-between;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 }
 
 .check {
@@ -196,16 +243,23 @@ input[type="submit"]:hover {
 
 .numbers {
 	border: 1px solid red;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	width: 100%;
-	flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
 }
 
 .buttons {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	min-width: 140px;
 	width: 140px;
-	justify-content: space-between;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 }
 
 .footer>.info>.label {
@@ -236,11 +290,17 @@ input[type="submit"]:hover {
   }
 
   .btn>i{
+	  display: -webkit-box;
+	  display: -ms-flexbox;
 	  display: flex;
 	  width: 100%;
 	  height: 100%;
-	  justify-content: center;
-	  align-items: center;
+	  -webkit-box-pack: center;
+	      -ms-flex-pack: center;
+	          justify-content: center;
+	  -webkit-box-align: center;
+	      -ms-flex-align: center;
+	          align-items: center;
   }
 
   .btn:hover {
