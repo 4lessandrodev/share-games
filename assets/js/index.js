@@ -26,7 +26,10 @@ const updateHash = () => {
 
 	const str = JSON.stringify({ games });
 
-	const hash = `#'${str}'`;
+	const base64 = transformHashToBase64(str);
+
+	const hash = `#${base64.data}`;
+
 
 	location.hash = hash;
 }
@@ -196,9 +199,10 @@ form.addEventListener('submit', (e) => {
 });
 
 const existsHash = () => {
-	const startsWith = location.hash.slice(2,3);
-	const endsWith = location.hash.slice(-2, -1);
-	return startsWith === '{' && endsWith === '}';
+	// const startsWith = location.hash.slice(2,3);
+	// const endsWith = location.hash.slice(-2, -1);
+	// return startsWith === '{' && endsWith === '}';
+	return location.hash !== '';
 }
 
 const convertHashToObject = (hash) => {
@@ -211,9 +215,9 @@ const convertHashToObject = (hash) => {
 	game.numbers.shift();
 	results.shift();
 
-	const data = hash.replaceAll('%22', '"').replaceAll('%20', "").slice(1).slice(1,-1);
+	// const data = hash.replaceAll('%22', '"').replaceAll('%20', "").slice(1).slice(1,-1);
 
-	const dataObj = JSON.parse(data);
+	const dataObj = JSON.parse(hash);
 	
 	const games = dataObj.games;
 
@@ -234,15 +238,34 @@ const convertHashToObject = (hash) => {
 
 const handleHashData = () => {
 	const existData = existsHash();
-	const hash = location.hash;
+	const hash = location.hash.slice(1); // remove #
 	if (existData) {
-		const data = convertHashToObject(hash);
+		const decodedHash = transformBase64ToString(hash);
+		
+		const data = convertHashToObject(decodedHash.data);
 		data.forEach((game) => {
 			addDataToDocument(game.numbers, game.gamerName, game.isPaid);
 		});
 	}
 }
 
+const transformHashToBase64 = (hash) => {
+	const base64 = { data: '' };
+
+	const result = window.btoa(hash);
+	base64.data = result;
+
+	return base64;
+}
+
+const transformBase64ToString = (base64) => {
+	const hash = { data: '' };
+
+	const result = window.atob(base64);
+	hash.data = result;
+
+	return hash;
+}
 
 const share = async () => {
 	const shareData = {
