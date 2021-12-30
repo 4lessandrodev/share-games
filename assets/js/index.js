@@ -6,7 +6,7 @@ const totalGames = document.getElementById('total_games');
 const totalMoney = document.getElementById('total_money');
 const shareIcon = document.querySelector('.share_icon');
 
-
+// dispatch an action delete, like or unlike game
 const dispatchAction = {
 	delete: (element) => element.parentNode.remove(),
 	like: (element) => {
@@ -21,6 +21,7 @@ const dispatchAction = {
 	}
 }
 
+// update hash on url
 const updateHash = () => {
 	const games = readGames();
 
@@ -34,6 +35,7 @@ const updateHash = () => {
 	location.hash = hash;
 }
 
+// listener on click on some game row
 gamesData.addEventListener('click', (e) => {
 	const element = e.target.parentNode;
 	const action = e.target.parentNode.dataset.action;
@@ -45,6 +47,7 @@ gamesData.addEventListener('click', (e) => {
 	}
 })
 
+// validate unique numbers on a game
 const validateUniques = (data) => {
 	const uniques = new Map();
 
@@ -59,6 +62,7 @@ const validateUniques = (data) => {
 	return uniques.size;
 }
 
+// get numbers from form before add to game table
 const extractNumbers = (data) => { 
 	const numbers = [0];
 	numbers.shift();
@@ -74,12 +78,14 @@ const extractNumbers = (data) => {
 	return numbers.sort((a, b) => a - b);
 };
 
+// get gamer name from form
 const extractName = (data) => { 
 	const gamer = { name: '' };
 	gamer.name = data.querySelector("input[type='text']").value;
 	return gamer.name;
 };
 
+// get game price based on numbers quantity
 const getPrice = (numbers) => {
 	switch (numbers.length) {
 		case 6:
@@ -108,6 +114,7 @@ const getPrice = (numbers) => {
 	}
 }
 
+// create element to handle on games table
 const createData = (numbers, gamerName, price, isPaid = false) => {
 
 	let inputs = '';
@@ -132,6 +139,7 @@ const createData = (numbers, gamerName, price, isPaid = false) => {
 	`
 }
 
+// convert monetary string to numbers 
 const transformMoneyInNumbers = (arr) => {
 	const result = [0];
 	result.shift();
@@ -144,10 +152,12 @@ const transformMoneyInNumbers = (arr) => {
 	return result;
 }
 
+// calculate total to paid for all games
 const calculateTotal = (arr) => {
 	return arr.reduce((total, curr) => total + curr, 0);
 }
 
+// handle total as monetary on footer
 const updateTotalMoneyOnFooter = () => {
 	const newRows = gamesData.querySelectorAll('.row');
 
@@ -166,12 +176,14 @@ const updateTotalMoneyOnFooter = () => {
 	totalMoney.innerText = `Total R$ ${total}`
 }
 
+// handle games to table
 const handle = (element) => {
 	const oldRows = gamesData.innerHTML;
 	const elements = oldRows + element;
 	gamesData.innerHTML = elements;
 }
 
+// main function to run on add a new game
 const main = (data) => {
 	const uniques = validateUniques(data);
 
@@ -186,6 +198,7 @@ const main = (data) => {
 	form.reset();
 };
 
+// add games to table document 
 const addDataToDocument = (numbers, gamerName, isPaid) => {
 	const price = getPrice(numbers);
 	const element = createData(numbers, gamerName, price, isPaid);
@@ -194,16 +207,17 @@ const addDataToDocument = (numbers, gamerName, isPaid) => {
 	updateHash();
 }
 
+// event on submit new game form
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
 	main(e.target);
 });
 
+// check if exist some hash on url 
 const existsHash = () => {
-	// const startsWith = location.hash.slice(2,3);
-	// const endsWith = location.hash.slice(-2, -1);
-	// return startsWith === '{' && endsWith === '}';
-	return location.hash !== '';
+	const hash = location.hash !== '';
+	const minLength = location.hash.length > 42;
+	return minLength && hash // min hash with data
 }
 
 const convertHashToObject = (hash) => {
@@ -237,6 +251,7 @@ const convertHashToObject = (hash) => {
 	return results;
 }
 
+// handle hash data to document table
 const handleHashData = () => {
 	const existData = existsHash();
 	const hash = location.hash.slice(1); // remove #
@@ -250,6 +265,7 @@ const handleHashData = () => {
 	}
 }
 
+// transform hash to base64 data
 const transformHashToBase64 = (hash) => {
 	const base64 = { data: '' };
 
@@ -259,6 +275,7 @@ const transformHashToBase64 = (hash) => {
 	return base64;
 }
 
+// transform base64 data into object
 const transformBase64ToString = (base64) => {
 	const hash = { data: '' };
 
@@ -268,6 +285,7 @@ const transformBase64ToString = (base64) => {
 	return hash;
 }
 
+// share games
 const share = async () => {
 	const shareData = {
 		title: 'Bolão entre amigos',
@@ -282,8 +300,10 @@ const share = async () => {
 	}
 }
 
+// event to button share
 shareIcon.addEventListener('click', share);
 
+// read all games into table
 const readGames = () => {
 	const rows = gamesData.querySelectorAll('.row');
 	const game = {
@@ -323,5 +343,5 @@ const readGames = () => {
 	return games;
 }
 
+// handle games from url if exists
 handleHashData();
-
