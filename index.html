@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+ <html lang='pt-BR'>
+  <head>
+   <meta charset='UTF-8'>
+   <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+   <meta name='description' content='bolão entre amigos'>
+   <meta name='keywords' content='mega-sena, bolão, loteria, mega da virada'>
+   <meta name='author' content='Alessandro Dev'>
+   <link rel='shortcut icon' href='./assets/images/trevo.png' type='image/x-icon'>
+   <title></title>
+   <link rel='stylesheet' href='./assets/css/normalize.css'>
+   <link rel='stylesheet' href='./assets/css/style.css'>
+  </head>
+ <body>
+  <header class="header">
+	  <div class="header_title_logo">
+	  	<picture class="header_picture">
+		  <img class="header_logo" src="./assets/images/trevo.png" alt="logo, folha de um trevo de quatro folhas">
+	  	</picture>
+   		<h1 class="header_title">Bolão entre amigos</h1>
+	</div>
+   <div class="header_share">
+	   <span class="share_icon"><i class="fa-solid fa-share-nodes"></i></span>
+   </div>
+  </header>
+  <main class="main">
+	  <section class="main_new_game">
+		<h2>Novo jogo</h2>
+		<article class="new_game_params">
+			<form action="#" method="get" class="new_game_numbers" id="new_game_form">
+				<input type="number" name="number1" id="number1" max="60" min="0" required placeholder="1">
+				<input type="number" name="number2" id="number2" max="60" min="0" required placeholder="2">
+				<input type="number" name="number3" id="number3" max="60" min="0" required placeholder="3">
+				<input type="number" name="number4" id="number4" max="60" min="0" required placeholder="4">
+				<input type="number" name="number5" id="number5" max="60" min="0" required placeholder="5">
+				<input type="number" name="number6" id="number6" max="60" min="0" required placeholder="6">
+				<input type="number" name="number7" id="number7" max="60" min="0" placeholder="+">
+				<input type="text" name="gamer" id="gamer" maxlength="20" placeholder="Nome jogador">
+				<input type="submit" value="Salvar">
+			</form>
+		</article>
+	  </section>
+	  <section class="main_games">
+		<h2>Jogos</h2>
+		<article class="games_table">
+			<div class="rows" id="games_data">
+<!-- 				
+ 				<div class="row">
+						<input type="number" disabled value="3">
+						<input type="number" disabled value="7">
+						<input type="number" disabled value="12">
+						<input type="number" disabled value="21">
+						<input type="number" disabled value="44">
+						<input type="number" disabled value="44">
+						<input type="text" class="gamer" disabled value="Juliano">
+						<input type="text" class="price" disabled value="R$ 4,50">
+						<div class="btn green" data-action="unlike"><i class="fa-solid fa-thumbs-up"></i></div>
+						<div class="btn red" data-action="delete"><i class="fa-solid fa-trash"></i></div>
+				</div>  
+-->
+
+			</div>
+		</article>
+	  </section>
+  </main>
+  <footer class="footer">
+	  	<div class="info">
+			<p class="label" id="total_money">Total R$ 4,50</p>
+			<p class="label" id="total_games">Jogos 01</p>
+		</div>
+		<div class="btn green check">Conferir</span></div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/7f4ebd6cfd.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="./assets/js/index.js"></script>
+ </body>
+</html>
