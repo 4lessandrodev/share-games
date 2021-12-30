@@ -76,6 +76,128 @@ input[type=number] {
 	overflow-x: scroll;
 }
 
+.winning_numbers {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.modal_group {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal_group > input {
+	margin-top: 3%;
+}
+
+.modal_footer {
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 45vh;
+}
+
+.modal_footer>input[type='submit'] {
+	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	background-color: var(--regular-green);
+	border: none;
+	height: 62px;
+	border-radius: 10px;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	color: var(--light);
+	align-self: end;
+	min-width: 120px;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+
+.modal_footer>input[type='reset'] {
+	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	background-color: var(--red);
+	border: none;
+	height: 62px;
+	border-radius: 10px;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	align-self: end;
+	color: var(--light);
+	min-width: 120px;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+
+.modal.opened {
+	display: flex;
+}
+
+.modal.closed {
+	display: none; /* Hidden by default */
+}
+
+.modal {
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	overflow: hidden;
+}
+
+.modal-content {
+	display: flex;
+	flex-direction: column;
+	background-color: #fefefe;
+	margin: auto auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%; /* Could be more or less, depending on screen size */
+	max-width: 720px;
+	min-width: 370px;
+	max-height: 700px;
+	min-height: 620px;
+	overflow: hidden;
+  }
+
+.content {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.content > div > input[type="number"] {
+	background-color: var(--light-gray);
+	border: none;
+	height: 42px;
+	width: 48px;
+	border-radius: 10px;
+	padding: 10px;
+	font-size: 21px;
+	font-weight: bold;
+	text-align: center;
+}
+
 .new_game_numbers > input[type="number"], .games_table input[type="number"] {
 	background-color: var(--light-gray);
 	border: none;
@@ -99,7 +221,7 @@ input[type=number] {
 	text-align: center;
 }
 
-.new_game_numbers > input[type="submit"] {
+.new_game_numbers > input[type="submit"], .winning_numbers> input[type="submit"] {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;

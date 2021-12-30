@@ -6,6 +6,12 @@ const totalGames = document.getElementById('total_games');
 const totalMoney = document.getElementById('total_money');
 const shareIcon = document.querySelector('.share_icon');
 const btnCheck = document.getElementById('btn-check');
+const modal = document.getElementById('modal');
+const btnCloseModal = document.getElementById('btn_close_modal');
+const submitWinningForm = modal.querySelector('input[type="submit"]');
+const winningForm = modal.querySelector('form');
+
+const resultsWinnerNumbers = [];
 
 // dispatch an action delete, like or unlike game
 const dispatchAction = {
@@ -358,6 +364,78 @@ const readGames = () => {
 
 	return games;
 }
+
+// if if some game is winning
+const checkWinningGame = () => {
+
+	console.table(resultsWinnerNumbers);
+	const rows = gamesData.querySelectorAll('.row');
+
+	rows.forEach((row) => {
+
+	const numbers = row.querySelectorAll('input[type="number"]');
+
+		numbers.forEach((n) => {
+
+			const number = parseInt(n.value);
+			const match = resultsWinnerNumbers.includes(number);
+
+			console.log(match, number);
+
+			if(match) { n.classList.toggle('marked_number'); }
+
+		});
+
+	});
+
+}
+
+
+// submit form with winning numbers
+submitWinningForm.addEventListener('click', (e) => {
+	e.preventDefault();
+
+	const total = validateUniques(modal);
+
+	if (total !== 6) {
+		swal("Invalid numbers", "Min numbers 6", "error");
+		return;
+	}
+
+	const numbersInputs = modal.querySelectorAll('input[type="number"]');
+
+	numbersInputs.forEach((n) => {
+		const number = parseInt(n.value);
+		resultsWinnerNumbers.push(number);
+	});
+
+	console.log(resultsWinnerNumbers.length);
+
+	if (resultsWinnerNumbers.length === 6) {
+		checkWinningGame();
+	}
+	toggleModal();
+});
+
+
+// open or close modal
+const toggleModal = () => {
+	modal.classList.toggle('closed');
+	modal.classList.toggle('opened');
+}
+
+// open modal
+btnCheck.addEventListener('click', () => {
+
+	// reset state
+	resultsWinnerNumbers.splice(0, resultsWinnerNumbers.length);
+	winningForm.reset();
+	toggleModal();
+
+});
+
+// close modal 
+btnCloseModal.addEventListener('click', toggleModal);
 
 // handle games from url if exists
 handleHashData();

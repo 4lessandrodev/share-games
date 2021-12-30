@@ -63,6 +63,34 @@
 		</article>
 	  </section>
   </main>
+
+  <div class="modal closed" id="modal">
+	<div class="modal-content">
+		<h2>Informe o resultado</h2>
+		<p>Você pode encontrar o último resultado no link da <a href="http://www.loterias.caixa.gov.br/wps/portal/loterias/landing/megasena/" target="_blank">Caixa</a></p>
+		<form action="#" method="get" class="winning_numbers" id="winning_numbers">
+			<div class="content">
+				<div class="modal_group">
+					<input type="number" name="number1" max="60" min="0" required placeholder="1" tabindex="1">
+					<input type="number" name="number4" max="60" min="0" required placeholder="4" tabindex="4">
+				</div>
+				<div class="modal_group">
+					<input type="number" name="number2" max="60" min="0" required placeholder="2" tabindex="2">
+					<input type="number" name="number5" max="60" min="0" required placeholder="5" tabindex="5">
+				</div>
+				<div class="modal_group">
+					<input type="number" name="number3" max="60" min="0" required placeholder="3" tabindex="3">
+					<input type="number" name="number6" max="60" min="0" required placeholder="6" tabindex="6">
+				</div>
+			</div>
+			<div class="modal_footer">
+				<input type="reset" value="Cancelar" tabindex="8" id="btn_close_modal">
+				<input type="submit" value="Aplicar" tabindex="7">
+			</div>
+		</form>
+	</div>
+  </div>
+
   <footer class="footer">
 	  	<div class="info">
 			<p class="label" id="total_money">Total R$ 0.00</p>
