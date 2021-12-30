@@ -138,7 +138,6 @@ input[type="submit"]:hover {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	width: 85vw;
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
 	    -ms-flex-direction: column;
@@ -153,8 +152,10 @@ input[type="submit"]:hover {
 	background-color: var(--light-gray);
 	padding: 3%;
 	border-radius: 7px;
-	min-height: 40vh;
+	min-height: 35vh;
 	overflow: scroll;
+	max-width: 870px;
+	width: 100%;
 }
 
 .games_table input[type="text"].gamer {
@@ -234,6 +235,7 @@ input[type="submit"]:hover {
 .footer {
 	display: -webkit-box;
 	display: -ms-flexbox;
+	max-width: 920px;
 	display: flex;
 	-webkit-box-orient: horizontal;
 	-webkit-box-direction: normal;
@@ -286,6 +288,7 @@ input[type="submit"]:hover {
   /* Chrome, Edge, and Safari */
   *::-webkit-scrollbar {
     width: 11px;
+	background-color: var(--light-green);
   }
 
   *::-webkit-scrollbar-track {
