@@ -444,7 +444,6 @@ input[type="submit"]:hover {
 	  cursor: pointer;
   }
 
-
   
   @media only screen and (min-width : 800px) {
 	  html {
@@ -463,6 +462,13 @@ input[type="submit"]:hover {
 	body {
 		background-color: azure;
 		max-width: 1028px;
+		width: 1020px;
 		min-height: 100vh;
+	}
+
+	@media screen and (max-width: 900px) {
+		body {
+			width: 100%;
+		}
 	}
 }
