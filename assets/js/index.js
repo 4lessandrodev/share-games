@@ -406,6 +406,10 @@ submitWinningForm.addEventListener('click', (e) => {
 
 	numbersInputs.forEach((n) => {
 		const number = parseInt(n.value);
+		if (number < 1 || number > 60) {
+			swal("Invalid number value", "Min 1 and Max value 60", "error");
+			return;
+		}
 		resultsWinnerNumbers.push(number);
 	});
 

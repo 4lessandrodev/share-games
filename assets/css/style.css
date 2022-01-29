@@ -5,6 +5,7 @@
 * Browsers: last 4 version
 */
 
+
 :root {
 	--light-green: #18BD77;
 	--light: #FFFFFF;
@@ -16,6 +17,8 @@
 
 body {
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	background-color: azure;
+	min-height: 100vh;
 }
 
 h2 {
@@ -71,7 +74,7 @@ input[type=number] {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	min-width: 90vw;
+	min-width: 100%;
 	padding: 10px 0;
 	overflow-x: scroll;
 }
@@ -440,3 +443,26 @@ input[type="submit"]:hover {
   .btn:hover {
 	  cursor: pointer;
   }
+
+
+  
+  @media only screen and (min-width : 800px) {
+	  html {
+	  background-color: black;
+		display: flex;
+		flex-direction: column;
+		width: 100vw;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+		background-image: 
+        linear-gradient(to bottom, rgba(18,42, 66, .85), rgba(18,42, 66, .85)), url('../images/dollar.jpg');
+		background-size: contain;
+		background-repeat: repeat;
+	}
+	body {
+		background-color: azure;
+		max-width: 1028px;
+		min-height: 100vh;
+	}
+}
